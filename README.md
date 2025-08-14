@@ -47,22 +47,18 @@ cd QuizGuard
 
 **Install dependencies**
 ```bash
-Copy
-Edit
 npm ci
+```
 
 **Run locally**
 ```bash
-Copy
-Edit
 npm run dev
 ```
 
 ## 🐳 Docker Build & Run
 
 ```bash
-Copy
-Edit
+
 docker build -t quizguard-frontend -f Dockerfile.frontend .
 docker-compose up
 ```
@@ -81,4 +77,4 @@ Security scan
 
 Deploy to Render
 
-**=Deployment URL: https://quizguard-p5t8.onrender.com**
+**Deployment URL: https://quizguard-p5t8.onrender.com**
