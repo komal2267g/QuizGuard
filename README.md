@@ -1,51 +1,64 @@
-# Welcome to my project
+# QuizGuard 🛡️
 
-There are several ways of editing your application.
+![QuizGuard Screenshot](public/screenshot.png) <!-- Replace with your actual screenshot path -->
 
+[![CI/CD](https://github.com/komal2267g/QuizGuard/actions/workflows/deploy.yml/badge.svg)](https://github.com/komal2267g/QuizGuard/actions)
+![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
 
-**Use your preferred IDE**
+🔗 **Live Demo:** [https://quizguard-p5t8.onrender.com](https://quizguard-p5t8.onrender.com)
 
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📌 Overview
+QuizGuard is a secure online quiz platform with **role-based access** for Teachers and Students, built to prevent cheating and ensure fair assessments.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Admin (Teacher)**
+- Create quizzes with custom questions.
+- Generate unique access links.
+- View & download student scores (PDF).
+- Dashboard with all submissions.
 
-# Step 3: Install the necessary dependencies.
-npm i
+**Student**
+- Join via unique link, enter roll number & name.
+- Full-screen enforced quiz mode.
+- Tab-switch warning & quit option.
+- Instant confirmation email with score.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 🛠 Tech Stack
+- **Frontend:** React + TypeScript + Tailwind CSS + Vite
+- **Backend/DB:** Supabase
+- **Build:** Docker, Nginx
+- **CI/CD:** GitHub Actions → Render
+- **Security Scan:** Trivy
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/komal2267g/QuizGuard.git
+cd QuizGuard
+
+# Install dependencies
+npm ci
+
+# Run locally
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+🐳 Docker Build
+docker build -t quizguard-frontend -f Dockerfile.frontend .
+docker-compose up
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🔄 CI/CD
 
-**Use GitHub Codespaces**
+Push to main → GitHub Actions builds & deploys to Render.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-"Trigger CI/CD" 
+Deployment URL: https://quizguard-p5t8.onrender.com
