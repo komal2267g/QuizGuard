@@ -46,7 +46,7 @@ jobs:
 
       # 8. Deploy to Render — only if all previous steps pass
       - name: Deploy to Render
-        if: success()  # <-- ensures deploy only runs on success
+        if: success()  # <-- ensures deploy only runs on successs
         run: |
           curl -X POST "$RENDER_DEPLOY_HOOK"
         env:
