@@ -37,27 +37,39 @@ QuizGuard is a **secure online quiz platform** with **role-based access** for Te
 - **Security Scan:** Trivy
 
 ---
-
 ## ⚡ Quick Start
 
+**Clone the repository**
 ```bash
-# Clone the repository
 git clone https://github.com/komal2267g/QuizGuard.git
 cd QuizGuard
+```
 
-# Install dependencies
+**Install dependencies**
+```bash
+Copy
+Edit
 npm ci
 
-# Run locally
+**Run locally**
+```bash
+Copy
+Edit
 npm run dev
-🐳 Docker Build & Run
-bash
+```
+
+## 🐳 Docker Build & Run
+
+```bash
 Copy
 Edit
 docker build -t quizguard-frontend -f Dockerfile.frontend .
 docker-compose up
-🔄 CI/CD Pipeline
-Push to main branch → GitHub Actions runs:
+```
+
+## 🔄 CI/CD Pipeline
+
+**Push to main branch → GitHub Actions runs:**
 
 Build
 
@@ -69,4 +81,4 @@ Security scan
 
 Deploy to Render
 
-Deployment URL: https://quizguard-p5t8.onrender.com
+**=Deployment URL: https://quizguard-p5t8.onrender.com**
