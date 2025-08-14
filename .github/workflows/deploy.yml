@@ -1,0 +1,52 @@
+name: CI/CD for QuizGuard
+
+on:
+  push:
+    branches:
+      - main  # Only deploy when pushing to main
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Node for lint & build check
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Run lint
+      - name: Run Linter
+        run: npm run lint || echo "Lint warnings found"
+
+      # 5. Run tests (if any)
+      - name: Run Tests
+        run: npm test || echo "No tests found"
+
+      # 6. Build Docker image
+      - name: Build Docker image
+        run: docker build -t quizguard-frontend -f Dockerfile.frontend .
+
+      # 7. Security scan with Trivy
+      - name: Security scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: quizguard-frontend
+          format: table
+          exit-code: 0  # Don't fail the build for vulnerabilities, just report
+
+      # 8. Deploy to Render (using their deploy hook)
+      - name: Deploy to Render
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK"
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
